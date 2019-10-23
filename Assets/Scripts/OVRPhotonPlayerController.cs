@@ -39,4 +39,26 @@ public class OVRPhotonPlayerController : OVRPlayerController
         }
     }
 
+    override protected void UpdateController() {
+        if (photonView.IsMine)
+        {
+            base.UpdateController();
+        }
+        else
+        {
+            return;
+        }
+    }
+
+
+    public void UpdateTransform(OVRCameraRig rig) {
+        if (photonView.IsMine)
+        {
+            base.UpdateTransform(rig);
+        }
+        else {
+            return;
+        }
+    }
+
 }
